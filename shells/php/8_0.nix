@@ -1,5 +1,11 @@
 let
-  pkgs = import <nixpkgs> {};
+  pkgs = import <nixpkgs> { 
+    config = {     
+      permittedInsecurePackages = [
+        "openssl-1.1.1v"
+      ];
+    }; 
+  };
   php = pkgs.php80.buildEnv {
     extensions = { all, ... }: with all; [ 
       filter
