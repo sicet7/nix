@@ -6,5 +6,6 @@ mkShell {
     (with dotnetCorePackages; combinePackages [
       sdk_6_0
     ])
+    mono
   ];
 }
