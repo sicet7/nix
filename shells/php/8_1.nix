@@ -61,5 +61,6 @@ pkgs.mkShell {
   packages = [
     php
     php.packages.composer
+    pkgs.roadrunner
   ];
 }
