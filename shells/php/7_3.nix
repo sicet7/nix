@@ -1,8 +1,14 @@
 let
   pkgs = import (fetchTarball {
-    url = "https://github.com/NixOS/nixpkgs/archive/refs/heads/release-24.11.tar.gz";
-  }) {};
-  php = pkgs.php83.buildEnv {
+    url = "https://github.com/NixOS/nixpkgs/archive/refs/heads/release-21.05.tar.gz";
+  }) {
+    config = {
+      permittedInsecurePackages = [
+        "openssl-1.1.1w"
+      ];
+    }; 
+  };
+  php = pkgs.php73.buildEnv {
     extensions = { all, ... }: with all; [
       filter
       openssl
@@ -12,7 +18,6 @@ let
       tokenizer
       xmlreader
       xmlwriter
-      amqp
       bcmath
       bz2
       curl
@@ -26,7 +31,7 @@ let
       pdo_mysql
       pgsql
       pdo_pgsql
-      sqlsrv
+      sqlsrv 
       pdo_sqlsrv
       sqlite3
       pdo_sqlite
@@ -62,6 +67,5 @@ pkgs.mkShell {
   packages = [
     php
     php.packages.composer
-    pkgs.roadrunner
   ];
 }
