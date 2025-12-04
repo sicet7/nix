@@ -13,8 +13,7 @@
     ../users/sicet7/user.nix
   ];
 
-  # Set hostname
-  networking.hostName = "sicet7-nixos-framework";
+
 
   # My Home Desktop has a AMD Graphics Card
   services.xserver.videoDrivers = [ "amdgpu" ];
@@ -30,4 +29,30 @@
 
   # System State Version
   system.stateVersion = "24.05";
+
+  networking = {
+
+      # Set hostname
+      hostName = "sicet7-nixos-framework";
+
+      # Set additional Allowed ports
+      firewall = {
+        allowedTCPPorts = [
+          8099
+          9000
+          9001
+          9002
+          9003
+          9004
+        ];
+        allowedUDPPorts = [
+          8099
+          9000
+          9001
+          9002
+          9003
+          9004
+        ];
+      };
+    };
 }

@@ -4,7 +4,7 @@
     <home-manager/nixos>
   ];
 
-  home-manager.users.sicet7 = { lib, config }: {
+  home-manager.users.sicet7 = {
     home.packages = with pkgs; [
       localsend
     ];

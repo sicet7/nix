@@ -3,11 +3,12 @@
   imports = [
     <home-manager/nixos>
     ../../../general/fonts.nix
+    ./tmux.nix
   ];
 
   services.xserver.desktopManager.xterm.enable = true;
 
-  home-manager.users.sicet7 = { lib, config }: {
+  home-manager.users.sicet7 = {
 
     dconf.settings = {
       "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/terminal" = {

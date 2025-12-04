@@ -11,6 +11,17 @@
     ./imports/localsend.nix
     ./imports/docker.nix
     ./imports/jetbrains.nix
+    ./imports/git.nix
+    ./imports/browser.nix
+    ./imports/b64d.nix
+    ./imports/shop.nix
+    ./imports/starship.nix
+    ./imports/tmux.nix
+    ./imports/enter.nix
+    ./imports/packages.nix
+    ./imports/android-studio.nix
+    ./imports/odbc.nix
+    ./imports/programming.nix
   ];
 
   nix = {
@@ -44,4 +55,8 @@
       du = "du -hs";
     };
   };
+
+  services.clamav.scanner.scanDirectories = [
+    "/home/sicet7/Downloads"
+  ];
 }

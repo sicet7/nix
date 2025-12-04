@@ -1,6 +1,6 @@
 let
   pkgs = import (fetchTarball {
-    url = "https://github.com/NixOS/nixpkgs/archive/refs/heads/release-24.11.tar.gz";
+    url = "https://github.com/NixOS/nixpkgs/archive/refs/heads/release-25.11.tar.gz";
   }) {};
   php = pkgs.php84.buildEnv {
     extensions = { all, ... }: with all; [
