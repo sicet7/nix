@@ -8,7 +8,7 @@ in
     ./shared-options.nix
   ];
 
-  home-manager.users.sicet7 = { lib, config }: {
+  home-manager.users.sicet7 = { lib, config, ... }: {
     home.packages = with pkgs; [
       lazygit
     ];
