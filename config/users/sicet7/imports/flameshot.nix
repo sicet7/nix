@@ -10,7 +10,7 @@ in
     <home-manager/nixos>
   ];
 
-  home-manager.users.sicet7 = { lib, config }: {
+  home-manager.users.sicet7 = { lib, config, ... }: {
 
     home.packages = with pkgs; [
       flameshot
