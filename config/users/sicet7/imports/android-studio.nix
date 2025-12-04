@@ -1,6 +1,8 @@
-{ config, lib, pkgs, ... }:
+{ config, lib, ... }:
 let
-  unstable = import <nixpkgs-unstable> { };
+  unstable = import <nixpkgs-unstable> {
+    config = config.nixpkgs.config;
+  };
 in
 {
   imports = [
@@ -17,7 +19,7 @@ in
 
   nixpkgs.config.android_sdk.accept_license = true;
 
-  environment.systemPackages = with pkgs; [
+  environment.systemPackages = [
     unstable.android-studio-full
   ];
 }
