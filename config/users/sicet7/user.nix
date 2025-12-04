@@ -1,4 +1,7 @@
 { config, lib, ... }:
+let
+  cfg = config.sicet7;
+in
 {
   imports = [
     # Requires home-manager to be in your nix-channel --list
@@ -24,39 +27,38 @@
     ./imports/programming.nix
   ];
 
-  nix = {
-    settings = {
-      trusted-users = [ "root" "@wheel" ];
+  options = {
+    sicet7.homeVersion = lib.mkOption {
+      type = lib.types.str;
+      default = "23.11";
+      description = "Defines the home.stateVersion of the sicet7 user";
     };
   };
 
-  users.users.sicet7 = {
-    isNormalUser = true;
-    description = config.sicet7.name;
-    extraGroups = [ "networkmanager" "wheel" ];
-  };
-
-  home-manager.useUserPackages = true;
-  home-manager.useGlobalPkgs = true;
-
-  options.sicet7.homeVersion = lib.mkOption {
-   type = lib.types.str;
-   default = "23.11";
-   description = "Defines the home.stateVersion of the sicet7 user";
-  };
-
-  home-manager.users.sicet7 = {
-    home.version = config.sicet7.homeVersion;
-
-    home.shellAliases = {
-      mv = "mv -iv";
-      rm = "rm -v";
-      df = "df -h";
-      du = "du -hs";
+  config = {
+    nix.settings.trusted-users = [ "root" "@wheel" ];
+    users.users.sicet7 = {
+      isNormalUser = true;
+      description = cfg.name;
+      extraGroups = [ "networkmanager" "wheel" ];
     };
-  };
 
-  services.clamav.scanner.scanDirectories = [
-    "/home/sicet7/Downloads"
-  ];
+    home-manager.useUserPackages = true;
+    home-manager.useGlobalPkgs = true;
+
+    home-manager.users.sicet7 = {
+      home.version = cfg.homeVersion;
+
+      home.shellAliases = {
+        mv = "mv -iv";
+        rm = "rm -v";
+        df = "df -h";
+        du = "du -hs";
+      };
+    };
+
+    services.clamav.scanner.scanDirectories = [
+      "/home/sicet7/Downloads"
+    ];
+  };
 }
