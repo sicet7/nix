@@ -24,7 +24,7 @@
     };
   };
 
-  services.xserver.xresources = ''
+  xresources.extraConfig = ''
     XTerm*faceName: SauceCodePro Nerd Font Mono
     XTerm*faceSize: 12
     XTerm*Background: Grey19
