@@ -5,8 +5,6 @@
     ../../../general/fonts.nix
   ];
 
-  services.xserver.enable = true;
-
   services.desktopManager.gnome.enable = true;
 
   services.displayManager = {

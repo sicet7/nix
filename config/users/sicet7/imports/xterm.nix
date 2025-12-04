@@ -22,15 +22,13 @@
         ];
       };
     };
-
-    home.file = {
-      ".Xresources".text = ''
-        XTerm*faceName: Source Code Pro,Source Code Pro Semibold
-        XTerm*faceSize: 12
-        XTerm*Background: Grey19
-        XTerm*Foreground: white
-        XTerm*VT100*selectToClipboard: true
-      '';
-    };
   };
+
+  services.xserver.xresources = ''
+    XTerm*faceName: SauceCodePro Nerd Font Mono
+    XTerm*faceSize: 12
+    XTerm*Background: Grey19
+    XTerm*Foreground: white
+    XTerm*VT100*selectToClipboard: true
+  '';
 }
