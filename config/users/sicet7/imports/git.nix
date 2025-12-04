@@ -1,12 +1,12 @@
 { config, lib, pkgs, ... }:
+let
+  cfg = config.sicet7;
+in
 {
   imports = [
     <home-manager/nixos>
     ./shared-options.nix
   ];
-
-  home-manager.users.sicet7.programs.git.userName = config.sicet7.name;
-  home-manager.users.sicet7.programs.git.userEmail = config.sicet7.email;
 
   home-manager.users.sicet7 = { lib, config }: {
     home.packages = with pkgs; [
@@ -15,6 +15,8 @@
 
     programs.git = {
       enable = true;
+      userName = cfg.name;
+      userEmail = cfg.email;
       aliases = {
         assume = "update-index --assume-unchanged";
         unassume = "update-index --no-assume-unchanged";
