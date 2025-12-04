@@ -1,5 +1,5 @@
 { config, pkgs, ... }:
 {
   # Allow unfree packages
-  nixpkgs.config.allowUnfree = true;
+  config.nixpkgs.config.allowUnfree = true;
 }
