@@ -1,6 +1,8 @@
-{ config, lib, pkgs, ... }:
+{ config, lib, ... }:
 let
-  unstable = import <nixpkgs-unstable> { };
+  unstable = import <nixpkgs-unstable> {
+    config = config.nixpkgs.config;
+  };
 in
 {
   imports = [
@@ -8,7 +10,7 @@ in
   ];
 
   home-manager.users.sicet7 = {
-    home.packages = with pkgs; [
+    home.packages = [
       unstable.jetbrains.rider
       unstable.jetbrains.goland
       unstable.jetbrains.webstorm
