@@ -13,8 +13,6 @@
     ../users/sicet7/user.nix
   ];
 
-
-
   # My Home Desktop has a AMD Graphics Card
   services.xserver.videoDrivers = [ "amdgpu" ];
 
