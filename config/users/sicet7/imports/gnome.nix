@@ -5,16 +5,14 @@
     ../../../general/fonts.nix
   ];
 
-  services.xserver = {
-    enable = true;
+  services.desktopManager.gnome.enable = true;
 
-    displayManager.gdm = {
+  services.displayManager = {
+    gdm = {
       enable = true;
       wayland = true;
       autoSuspend = false;
     };
-
-    desktopManager.gnome.enable = true;
   };
 
   home-manager.users.sicet7 = { lib, ... }: {
