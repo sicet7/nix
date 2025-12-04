@@ -47,7 +47,7 @@ in
     home-manager.useGlobalPkgs = true;
 
     home-manager.users.sicet7 = {
-      home.version = cfg.homeVersion;
+      home.stateVersion = cfg.homeVersion;
 
       home.shellAliases = {
         mv = "mv -iv";
