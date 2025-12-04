@@ -17,7 +17,7 @@
     desktopManager.gnome.enable = true;
   };
 
-  home-manager.users.sicet7 = {
+  home-manager.users.sicet7 = { lib, ... }: {
     home.shellAliases = {
       gedit = "gnome-text-editor";
     };
