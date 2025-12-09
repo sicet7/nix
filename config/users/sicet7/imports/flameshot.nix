@@ -43,9 +43,9 @@ in
   };
 
   environment.systemPackages = with pkgs; [
-    pkgs.grimshot
-    pkgs.slurp
-    pkgs.flameshot
+    grimshot
+    slurp
+    flameshot
     fixFlameshotScript
   ];
 }
