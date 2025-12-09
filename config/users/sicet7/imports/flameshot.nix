@@ -11,6 +11,9 @@ in
     <home-manager/nixos>
   ];
 
+  xdg.portal.enable = true;
+  xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-gnome ];
+
   home-manager.users.sicet7 = { lib, config, ... }: {
 
     home.packages = with pkgs; [
