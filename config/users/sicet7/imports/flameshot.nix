@@ -2,7 +2,7 @@
 let
   fixFlameshotScript = pkgs.writeShellScriptBin "flameshot-screenshot" ''
     #!/bin/sh
-    env QT_QPA_PLATFORM=wayland flameshot gui
+    flameshot gui
   '';
 in
 {
@@ -43,6 +43,10 @@ in
         };
       };
     };
+  };
+
+  environment.variables = rec {
+    QT_QPA_PLATFORM="wayland";
   };
 
   environment.systemPackages = with pkgs; [
