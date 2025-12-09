@@ -9,7 +9,7 @@ in
     ./imports/shared-options.nix
     ./imports/gnome.nix
     ./imports/zsh.nix
-    ./imports/xterm.nix
+    ./imports/kitty.nix
     ./imports/flameshot.nix
     ./imports/localsend.nix
     ./imports/docker.nix

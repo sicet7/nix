@@ -17,20 +17,19 @@
         # Close window as soon as the shell/command exits
         confirm_os_window_close = 0;
 
+        background = "#1e1e1e";
+        foreground = "#d4d4d4";
+        selection_background = "#264f78";
+        selection_foreground = "#ffffff";
+        cursor = "#aeafad";
+        cursor_text_color = "background";
+        hide_window_decorations = "titlebar-only";
+
         # Some nice defaults
         shell_type = "login";
         scrollback_lines = 10000;
-        window_padding_width = 6;
+        window_padding_width = 2;
       };
-      extraConfig = ''
-        background   #1e1e1e
-        foreground   #d4d4d4
-        selection_background #264f78
-        selection_foreground #ffffff
-
-        cursor              #aeafad
-        cursor_text_color   background
-      '';
     };
 
     dconf.settings = {
