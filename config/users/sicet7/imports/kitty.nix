@@ -23,7 +23,7 @@
         selection_foreground = "#ffffff";
         cursor = "#aeafad";
         cursor_text_color = "background";
-        hide_window_decorations = "titlebar-only";
+        hide_window_decorations = "yes";
 
         # Some nice defaults
         shell_type = "login";
