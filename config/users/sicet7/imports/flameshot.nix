@@ -2,6 +2,7 @@
 let
   fixFlameshotScript = pkgs.writeShellScriptBin "flameshot-screenshot" ''
     #!/bin/sh
+    export XDG_DATA_DIRS="$XDG_DATA_DIRS:${pkgs.gtk3}/share/gsettings-schemas/${pkgs.gtk3.name}"
     env QT_QPA_PLATFORM=wayland flameshot gui
   '';
 in
@@ -14,6 +15,7 @@ in
 
     home.packages = with pkgs; [
       flameshot
+      gsettings-desktop-schemas
     ];
 
     dconf.settings = {
