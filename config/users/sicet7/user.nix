@@ -10,7 +10,7 @@ in
     ./imports/gnome.nix
     ./imports/zsh.nix
     ./imports/kitty.nix
-    ./imports/flameshot.nix
+#    ./imports/flameshot.nix
     ./imports/localsend.nix
     ./imports/docker.nix
     ./imports/jetbrains.nix
