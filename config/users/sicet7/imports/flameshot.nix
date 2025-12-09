@@ -3,7 +3,8 @@ let
   fixFlameshotScript = pkgs.writeShellScriptBin "flameshot-screenshot" ''
     #!/bin/sh
     export XDG_DATA_DIRS="$XDG_DATA_DIRS:${pkgs.gtk3}/share/gsettings-schemas/${pkgs.gtk3.name}"
-    env QT_QPA_PLATFORM=wayland flameshot gui
+    export QT_QPA_PLATFORM="wayland"
+    grimshot save output - | flameshot gui --raw -
   '';
 in
 {
@@ -11,16 +12,7 @@ in
     <home-manager/nixos>
   ];
 
-  xdg.portal.enable = true;
-  xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-gnome ];
-
   home-manager.users.sicet7 = { lib, config, ... }: {
-
-    home.packages = with pkgs; [
-      flameshot
-      gsettings-desktop-schemas
-    ];
-
     dconf.settings = {
       "org/gnome/shell/keybindings" = {
         show-screenshot-ui = [];
@@ -51,6 +43,9 @@ in
   };
 
   environment.systemPackages = with pkgs; [
+    pkgs.grimshot
+    pkgs.slurp
+    pkgs.flameshot
     fixFlameshotScript
   ];
 }
