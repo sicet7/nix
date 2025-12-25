@@ -89,24 +89,21 @@ let
         fi
       }
 
-      # Special: switching PHP also switches composer + rr (if present in same env)
       if [ "$tool" = "php" ]; then
         link_optional composer
         link_optional rr
+      fi
+
+      if [ "$tool" = "node" ]; then
+        link_optional npm
+        link_optional npx
+        link_optional corepack
       fi
 
       echo "Switched $tool to $ver -> $envPath"
 
       # Print versions (best-effort)
       "$HOME/.local/bin/$tool" --version 2>/dev/null || "$HOME/.local/bin/$tool" -v 2>/dev/null || true
-      if [ "$tool" = "php" ]; then
-        if [ -x "$HOME/.local/bin/composer" ]; then
-          "$HOME/.local/bin/composer" --version 2>/dev/null || true
-        fi
-        if [ -x "$HOME/.local/bin/rr" ]; then
-          "$HOME/.local/bin/rr" --version 2>/dev/null || "$HOME/.local/bin/rr" -v 2>/dev/null || true
-        fi
-      fi
     '';
 in
 {
