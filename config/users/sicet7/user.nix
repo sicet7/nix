@@ -20,7 +20,8 @@ in
     ./imports/shop.nix
     ./imports/starship.nix
     ./imports/tmux.nix
-    ./imports/enter.nix
+#    ./imports/enter.nix
+    ./imports/shells/change.nix
     ./imports/packages.nix
     ./imports/android-studio.nix
     ./imports/odbc.nix
