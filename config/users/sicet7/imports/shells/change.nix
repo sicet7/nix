@@ -36,9 +36,7 @@ let
 
       usage() {
         echo "Usage: change <tool> <version>"
-        echo ""
-        echo "Examples:"
-        echo "  change php 8.2"
+        echo "Example: change php 8.2"
         echo ""
         echo "Available:"
         awk '{print "  " $1 " " $2}' "${registryText}" | sort -u
@@ -52,27 +50,54 @@ let
       tool="$1"
       ver="$2"
 
-      # Find matching line: tool version storePath
-      match="$(awk -v t="$tool" -v v="$ver" '$1==t && $2==v {print $3}' "${registryText}" || true)"
-      if [ -z "$match" ]; then
+      envPath="$(awk -v t="$tool" -v v="$ver" '$1==t && $2==v {print $3}' "${registryText}" || true)"
+      if [ -z "$envPath" ]; then
         echo "Unknown: $tool $ver"
         echo ""
         usage
         exit 1
       fi
 
-      # Ensure target binary exists in that env
-      if [ ! -x "$match/bin/$tool" ]; then
-        echo "The env for $tool $ver does not provide: $match/bin/$tool"
-        echo "Tip: either add that program to the env's buildEnv paths, or map this tool/version to a different env."
+      if [ ! -x "$envPath/bin/$tool" ]; then
+        echo "Env does not provide: $envPath/bin/$tool"
         exit 1
       fi
 
       mkdir -p "$HOME/.local/bin"
-      ln -sfn "$match/bin/$tool" "$HOME/.local/bin/$tool"
 
-      echo "Switched $tool to $ver -> $match"
+      # Switch the requested tool
+      ln -sfn "$envPath/bin/$tool" "$HOME/.local/bin/$tool"
+
+      # Helper: link optional tool if present; otherwise remove stale symlink
+      link_optional() {
+        local bin="$1"
+        if [ -x "$envPath/bin/$bin" ]; then
+          ln -sfn "$envPath/bin/$bin" "$HOME/.local/bin/$bin"
+        else
+          if [ -L "$HOME/.local/bin/$bin" ]; then
+            rm -f "$HOME/.local/bin/$bin"
+          fi
+        fi
+      }
+
+      # Special: switching PHP also switches composer + rr (if present in same env)
+      if [ "$tool" = "php" ]; then
+        link_optional composer
+        link_optional rr
+      fi
+
+      echo "Switched $tool to $ver -> $envPath"
+
+      # Print versions (best-effort)
       "$HOME/.local/bin/$tool" --version 2>/dev/null || "$HOME/.local/bin/$tool" -v 2>/dev/null || true
+      if [ "$tool" = "php" ]; then
+        if [ -x "$HOME/.local/bin/composer" ]; then
+          "$HOME/.local/bin/composer" --version 2>/dev/null || true
+        fi
+        if [ -x "$HOME/.local/bin/rr" ]; then
+          "$HOME/.local/bin/rr" --version 2>/dev/null || "$HOME/.local/bin/rr" -v 2>/dev/null || true
+        fi
+      fi
     '';
 in
 {
@@ -83,6 +108,7 @@ in
 
   environment.systemPackages = [
     changeCmd
+    pkgs.roadrunner
   ];
 
   # Ensure ~/.local/bin wins over system binaries
