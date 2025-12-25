@@ -1,24 +1,36 @@
 { config, lib, pkgs, ... }:
+
+let
+  b64d = pkgs.writeShellScriptBin "b64d" ''
+    set -euo pipefail
+
+    # Usage:
+    #   b64d <base64url>
+    #   echo <base64url> | b64d
+    #
+    # Decodes base64url (-_) with optional missing padding.
+
+    input="''${1:-}"
+    if [ -z "$input" ]; then
+      # allow stdin if no arg given
+      input="$(cat)"
+    fi
+
+    # pad to a multiple of 4
+    len=$(( ''${#input} % 4 ))
+    padded="$input"
+    if [ "$len" = 2 ]; then
+      padded="''${input}=="
+    elif [ "$len" = 3 ]; then
+      padded="''${input}="
+    fi
+
+    # translate base64url to standard base64 and decode
+    printf "%s" "$padded" | tr -- "-_" "+/" | ${pkgs.coreutils}/bin/base64 -d
+  '';
+in
 {
-  imports = [
-    ./zsh.nix
+  environment.systemPackages = [
+    b64d
   ];
-
-  sicet7.zshInitContent = [
-    ''
-      b64d () {
-        local len=$(( ''${#1} % 4 ))
-        local padded_b64=""
-        if [ ''${len} = 2 ]; then
-          padded_b64="''${1}=="
-        elif [ ''${len} = 3 ]; then
-          padded_b64="''${1}="
-        else
-          padded_b64="''${1}"
-        fi
-        echo -n "$padded_b64" | tr -- "-_" "+/" | base64 -d
-      };
-    ''
-  ];
-
 }
