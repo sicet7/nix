@@ -45,7 +45,7 @@ in
                 owner = "zsh-users";
                 repo = "zsh-syntax-highlighting";
                 rev = "0.8.0";
-                sha256 = "80e1b434b95a25fa2d26fb3e49484680b4cd3a718b8e8aa7529e7857d685260f";
+                sha256 = "889756a296701e94b2625e7f1505c45bb825fd2aca6980c4b531fd7063fb88fa";
               };
             }
             {
