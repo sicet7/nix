@@ -9,6 +9,10 @@ let
   php83Env = import ./php/8_3.nix;
   php84Env = import ./php/8_4.nix;
 
+  node20Env = import ./node/20.nix;
+  node22Env = import ./node/22.nix;
+  node24Env = import ./node/24.nix;
+
   toolRegistry = {
     php = {
       "7.2" = php72Env;
@@ -19,6 +23,11 @@ let
       "8.2" = php82Env;
       "8.3" = php83Env;
       "8.4" = php84Env;
+    };
+    node = {
+      "20" = node20Env;
+      "22" = node22Env;
+      "24" = node24Env;
     };
   };
 
