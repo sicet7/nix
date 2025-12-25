@@ -17,7 +17,6 @@ in
     go
     dotnetPkg
     mono
-    nodejs_20
   ];
 
   environment.variables = rec {
