@@ -36,7 +36,7 @@ in
                 owner = "zsh-users";
                 repo = "zsh-autosuggestions";
                 rev = "v0.7.1";
-                sha256 = "28b518a54bb80c746e990677c39f66f6a4d6e9304a3025e5d9470a8b8b8c77bc";
+                sha256 = "be94f262af5981f81d0ec5b38f154013b1591f83002cc359205c843812e6e50a";
               };
             }
             {
