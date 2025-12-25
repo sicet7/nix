@@ -36,7 +36,7 @@ in
                 owner = "zsh-users";
                 repo = "zsh-autosuggestions";
                 rev = "v0.7.1";
-                sha256 = "28b518a54bb80c746e990677c39f66f5a4d6e9304a3025e5d9470a8b8b8c77bc";
+                sha256 = "28b518a54bb80c746e990677c39f66f6a4d6e9304a3025e5d9470a8b8b8c77bc";
               };
             }
             {
@@ -45,7 +45,7 @@ in
                 owner = "zsh-users";
                 repo = "zsh-syntax-highlighting";
                 rev = "0.8.0";
-                sha256 = "80e1b434b95a25fa2d25fb3e49484680b4cd3a718b8e8aa7529e7857d685260f";
+                sha256 = "80e1b434b95a25fa2d26fb3e49484680b4cd3a718b8e8aa7529e7857d685260f";
               };
             }
             {
