@@ -122,7 +122,10 @@ EOF
     vendorHash = cfg.vendorHash;
     subPackages = [ "." ];
 
-    CGO_ENABLED = 0;
+    env = {
+      CGO_ENABLED = "0";
+    };
+
     ldflags = [ "-s" "-w" ];
   };
 in
