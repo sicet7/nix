@@ -16,6 +16,8 @@ require (
 )
 EOF
 
+    touch "$out/go.sum"
+
     cat > "$out/main.go" <<'EOF'
 package main
 
