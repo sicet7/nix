@@ -28,8 +28,6 @@ in
     ./imports/yaml-merge.nix
   ];
 
-  programs.yaml-merge.enable = true;
-
   options = {
     sicet7.homeVersion = lib.mkOption {
       type = lib.types.str;
@@ -63,5 +61,7 @@ in
     services.clamav.scanner.scanDirectories = [
       "/home/sicet7/Downloads"
     ];
+
+    programs.yaml-merge.enable = true;
   };
 }
