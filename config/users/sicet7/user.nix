@@ -25,7 +25,10 @@ in
     ./imports/android-studio.nix
     ./imports/odbc.nix
     ./imports/programming.nix
+    ./imports/yaml-merge.nix
   ];
+
+  programs.yaml-merge.enable = true;
 
   options = {
     sicet7.homeVersion = lib.mkOption {
