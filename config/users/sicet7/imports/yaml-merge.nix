@@ -8,9 +8,9 @@ let
     version = "0.1.0";
 
     # local folder with main.go + go.mod + go.sum
-    src = "./go/yaml-merge";
+    src = ./go/yaml-merge;
 
-    vendorHash = cfg.vendorHash;
+    vendorHash = "sha256-g+yaVIx4jxpAQ/+WrGKxhVeliYx7nLQe/zsGpxV4Fn4=";
     subPackages = [ "." ];
 
     ldflags = [ "-s" "-w" ];
@@ -19,12 +19,6 @@ in
 {
   options.programs.yaml-merge = {
     enable = lib.mkEnableOption "yaml-merge CLI";
-
-    vendorHash = lib.mkOption {
-      type = lib.types.str;
-      default = lib.fakeHash;
-      description = "Fixed-output hash for Go dependencies (vendorHash). First build tells you the right value.";
-    };
 
     addToPath = lib.mkOption {
       type = lib.types.bool;
