@@ -1,7 +1,5 @@
 let
-  pkgs = import (fetchTarball {
-    url = "https://github.com/NixOS/nixpkgs/archive/refs/heads/release-25.11.tar.gz";
-  }) {};
+  pkgs = import <nixpkgs> {};
   php = pkgs.php82.buildEnv {
     extensions = { all, ... }: with all; [ 
       filter

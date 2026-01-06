@@ -1,12 +1,10 @@
 let
-  pkgs = import (fetchTarball {
-    url = "https://github.com/NixOS/nixpkgs/archive/refs/heads/release-23.05.tar.gz";
-  }) {
+  pkgs = import <nixpkgs-23-05> {
     config = {
       permittedInsecurePackages = [
         "openssl-1.1.1w"
       ];
-    }; 
+    };
   };
   php = pkgs.php80.buildEnv {
     extensions = { all, ... }: with all; [

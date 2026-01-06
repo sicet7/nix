@@ -1,12 +1,10 @@
 let
-  pkgs = import (fetchTarball {
-    url = "https://github.com/NixOS/nixpkgs/archive/refs/heads/release-20.03.tar.gz";
-  }) {
+  pkgs = import <nixpkgs-20-03> {
     config = {
       permittedInsecurePackages = [
         "openssl-1.1.1w"
       ];
-    }; 
+    };
   };
 
   composer = pkgs.stdenv.mkDerivation {
