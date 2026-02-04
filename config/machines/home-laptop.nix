@@ -13,6 +13,7 @@
     ../general/audio.nix
     ../general/fonts.nix
     ../general/nano.nix
+    ../general/libreoffice.nix
     ../users/sicet7/user.nix
   ];
 

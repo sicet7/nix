@@ -15,6 +15,7 @@
     ../general/nano.nix
     ../general/tailscale.nix
     ../general/clamav.nix
+    ../general/libreoffice.nix
     ../users/sicet7/user.nix
   ];
 
