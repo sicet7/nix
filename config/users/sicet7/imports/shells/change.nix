@@ -8,6 +8,7 @@ let
   php82Env = import ./php/8_2.nix;
   php83Env = import ./php/8_3.nix;
   php84Env = import ./php/8_4.nix;
+  php85Env = import ./php/8_5.nix;
 
   node20Env = import ./node/20.nix;
   node22Env = import ./node/22.nix;
@@ -23,6 +24,7 @@ let
       "8.2" = php82Env;
       "8.3" = php83Env;
       "8.4" = php84Env;
+      "8.5" = php85Env;
     };
     node = {
       "20" = node20Env;
