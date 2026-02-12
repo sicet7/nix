@@ -61,7 +61,7 @@
     mesa.drivers
     libva
     libva-utils
-    vaapiVdpau
+    libva-vdpau-driver
   ];
 
   # OBS with AMD hardware acc.
