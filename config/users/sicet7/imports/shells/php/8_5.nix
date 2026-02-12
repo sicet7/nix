@@ -43,7 +43,7 @@ let
       posix
       pcntl
       ctype
-      xdebug
+#      xdebug # TODO: fix this when not broken
       gettext
       shmop
       sysvmsg
