@@ -24,8 +24,8 @@ let
       pdo_mysql
       pgsql
       pdo_pgsql
-      sqlsrv
-      pdo_sqlsrv
+#      sqlsrv # TODO: fix these when they are not marked as broken.
+#      pdo_sqlsrv
       sqlite3
       pdo_sqlite
       pdo_odbc
