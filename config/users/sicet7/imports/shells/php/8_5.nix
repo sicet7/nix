@@ -10,12 +10,12 @@ let
       tokenizer
       xmlreader
       xmlwriter
-      amqp
+#      amqp # TODO: fix this when not broken
       bcmath
       bz2
       curl
       gd
-      imap
+#      imap # TODO: fix this when not broken
       intl
       ldap
       mbstring
@@ -24,8 +24,8 @@ let
       pdo_mysql
       pgsql
       pdo_pgsql
-#      sqlsrv # TODO: fix these when they are not marked as broken.
-#      pdo_sqlsrv
+#      sqlsrv # TODO: fix this when not broken
+#      pdo_sqlsrv # TODO: fix this when not broken
       sqlite3
       pdo_sqlite
       pdo_odbc
