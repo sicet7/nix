@@ -49,7 +49,7 @@ let
       sysvmsg
       sysvsem
       sysvshm
-      imagick
+#      imagick # TODO: fix this when not broken
       xsl
       readline
     ];
