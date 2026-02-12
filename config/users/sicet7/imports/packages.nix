@@ -14,7 +14,6 @@ in
       vlc
       spotify
       gimp
-      obs-studio
       insomnia
       signal-desktop
       slack

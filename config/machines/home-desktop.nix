@@ -31,27 +31,44 @@
 
   networking = {
 
-      # Set hostname
-      hostName = "sicet7-nixos-framework";
+    # Set hostname
+    hostName = "sicet7-nixos-framework";
 
-      # Set additional Allowed ports
-      firewall = {
-        allowedTCPPorts = [
-          8099
-          9000
-          9001
-          9002
-          9003
-          9004
-        ];
-        allowedUDPPorts = [
-          8099
-          9000
-          9001
-          9002
-          9003
-          9004
-        ];
-      };
+    # Set additional Allowed ports
+    firewall = {
+      allowedTCPPorts = [
+        8099
+        9000
+        9001
+        9002
+        9003
+        9004
+      ];
+      allowedUDPPorts = [
+        8099
+        9000
+        9001
+        9002
+        9003
+        9004
+      ];
     };
+  };
+
+  # AMD Graphics drivers
+  environment.systemPackages = with pkgs; [
+    mesa
+    mesa.drivers
+    libva
+    libva-utils
+    vaapiVdpau
+  ];
+
+  # OBS with AMD hardware acc.
+  programs.obs-studio = {
+    enable = true;
+    plugins = with pkgs.obs-studio-plugins; [
+      obs-vaapi
+    ];
+  };
 }
