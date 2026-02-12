@@ -58,7 +58,6 @@
   # AMD Graphics drivers
   environment.systemPackages = with pkgs; [
     mesa
-    mesa.drivers
     libva
     libva-utils
     libva-vdpau-driver
