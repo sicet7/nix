@@ -61,6 +61,7 @@
     libva
     libva-utils
     libva-vdpau-driver
+    restic
     restic-browser
   ];
 
