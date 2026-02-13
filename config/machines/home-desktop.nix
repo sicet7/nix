@@ -61,6 +61,7 @@
     libva
     libva-utils
     libva-vdpau-driver
+    restic-browser
   ];
 
   # OBS with AMD hardware acc.
