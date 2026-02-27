@@ -14,6 +14,7 @@
     ../general/fonts.nix
     ../general/nano.nix
     ../general/libreoffice.nix
+    ../general/restic.nix
     ../users/sicet7/user.nix
   ];
 

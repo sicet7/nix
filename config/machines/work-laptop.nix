@@ -16,6 +16,7 @@
     ../general/tailscale.nix
     ../general/clamav.nix
     ../general/libreoffice.nix
+    ../general/restic.nix
     ../users/sicet7/user.nix
   ];
 

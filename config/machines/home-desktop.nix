@@ -11,6 +11,7 @@
     ../general/fonts.nix
     ../general/nano.nix
     ../general/libreoffice.nix
+    ../general/restic.nix
     ../users/sicet7/user.nix
   ];
 
@@ -61,8 +62,6 @@
     libva
     libva-utils
     libva-vdpau-driver
-    restic
-    restic-browser
   ];
 
   # OBS with AMD hardware acc.
