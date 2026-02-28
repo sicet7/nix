@@ -10,12 +10,12 @@ let
       tokenizer
       xmlreader
       xmlwriter
-#      amqp # TODO: fix this when not broken
+      amqp # TODO: fix this when not broken
       bcmath
       bz2
       curl
       gd
-#      imap # TODO: fix this when not broken
+      imap # TODO: fix this when not broken
       intl
       ldap
       mbstring
@@ -43,13 +43,13 @@ let
       posix
       pcntl
       ctype
-#      xdebug # TODO: fix this when not broken
+      xdebug # TODO: fix this when not broken
       gettext
       shmop
       sysvmsg
       sysvsem
       sysvshm
-#      imagick # TODO: fix this when not broken
+      imagick # TODO: fix this when not broken
       xsl
       readline
     ];
