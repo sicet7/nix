@@ -20,8 +20,8 @@ let
       desktopName = "Proton Mail";
       categories = [ "Network" "Email" ];
       startupWMClass = "proton-mail";
-      extraEntries = {
-        X-AppId = "proton-mail";
+      extraConfig = {
+        "X-AppId" = "proton-mail";
       };
       type = "Application";
     };
