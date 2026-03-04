@@ -21,7 +21,7 @@ let
       icon = "${protonLumoSvg}";
       comment = "zero-access encrypted AI assistant by Proton";
       desktopName = "Proton Lumo";
-      categories = [ "Network" "AI" ];
+      categories = [ "Network" "Chat" ];
       startupWMClass = "proton-lumo";
       extraConfig = {
         "X-AppId" = "proton-lumo";
