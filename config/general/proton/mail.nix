@@ -15,7 +15,7 @@ in {
     protonMailWrapper
   ];
 
-  environment.etc."xdg/autostart/proton-mail.desktop".text = ''
+  environment.etc."xdg/applications/proton-mail.desktop".text = ''
     [Desktop Entry]
     Name=Proton Mail
     Comment=Secure email (web‑app)
