@@ -1,9 +1,9 @@
 { config, pkgs, ... }:
 let
   browser = pkgs.ungoogled-chromium;
-  protonSvg = builtins.path {
+  protonMailSvg = builtins.path {
     path = ./icons/mail.svg;
-    name = "proton-mail-svg";
+    name = "proton-mail.svg";
   };
   protonMailWrapper = pkgs.writeShellScriptBin "proton-mail" ''
     exec ${browser}/bin/${browser.meta.mainProgram} \
@@ -13,7 +13,7 @@ let
   protonMailDesktop = pkgs.makeDesktopItem {
       name = "proton-mail";
       exec = "${protonMailWrapper}/bin/proton-mail";
-      icon = "${protonSvg}/mail.svg";
+      icon = "${protonMailSvg}";
       comment = "Secure email (web‑app)";
       desktopName = "Proton Mail";
       categories = [ "Network" "Email" ];
