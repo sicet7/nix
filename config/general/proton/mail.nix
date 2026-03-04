@@ -9,21 +9,20 @@ let
     exec ${browser}/bin/${browser.meta.mainProgram} \
       --app=https://mail.proton.me/ "$@"
   '';
+  protonMailDesktop = pkgs.makeDesktopItem {
+      name = "proton-mail";
+      exec = "${protonMailWrapper}/bin/proton-mail";
+      icon = "${protonSvg}/mail.svg";
+      comment = "Secure email (web‑app)";
+      desktopName = "Proton Mail";
+      categories = [ "Network" "Email" ];
+      startupWMClass = "ungoogled-chromium";
+      type = "Application";
+    };
 in {
   environment.systemPackages = [
     browser
     protonMailWrapper
+    protonMailDesktop
   ];
-
-  environment.etc."xdg/applications/proton-mail.desktop".text = ''
-    [Desktop Entry]
-    Name=Proton Mail
-    Comment=Secure email (web‑app)
-    Exec=${protonMailWrapper}/bin/proton-mail
-    Icon=${protonSvg}/mail.svg
-    Terminal=false
-    Type=Application
-    Categories=Network;Email;
-    StartupWMClass=ungoogled-chromium
-  '';
 }
