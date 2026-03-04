@@ -1,7 +1,7 @@
 { config, pkgs, ... }:
 {
-  environment.systemPackages = with pkgs; [
-    proton-pass
-    protonmail-desktop
+  imports = [
+    ./proton/mail.nix
+    ./proton/pass.nix
   ];
 }
