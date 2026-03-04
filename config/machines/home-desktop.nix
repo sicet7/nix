@@ -12,6 +12,7 @@
     ../general/nano.nix
     ../general/libreoffice.nix
     ../general/restic.nix
+    ../general/proton.nix
     ../users/sicet7/user.nix
   ];
 
