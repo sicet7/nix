@@ -9,6 +9,7 @@ let
     exec ${browser}/bin/${browser.meta.mainProgram} \
       --force-dark-mode \
       --class=proton-mail \
+      --app-id=proton-mail \
       --app=https://mail.proton.me/ "$@"
   '';
   protonMailDesktop = pkgs.makeDesktopItem {
@@ -19,6 +20,9 @@ let
       desktopName = "Proton Mail";
       categories = [ "Network" "Email" ];
       startupWMClass = "proton-mail";
+      extraEntries = {
+        X-AppId = "proton-mail";
+      };
       type = "Application";
     };
 in {
