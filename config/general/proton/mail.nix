@@ -7,6 +7,7 @@ let
   };
   protonMailWrapper = pkgs.writeShellScriptBin "proton-mail" ''
     exec ${browser}/bin/${browser.meta.mainProgram} \
+      --force-dark-mode \
       --app=https://mail.proton.me/ "$@"
   '';
   protonMailDesktop = pkgs.makeDesktopItem {
