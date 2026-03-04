@@ -7,9 +7,12 @@ let
   };
   protonMailWrapper = pkgs.writeShellScriptBin "proton-mail" ''
     exec ${browser}/bin/${browser.meta.mainProgram} \
-      --force-dark-mode \
+      --ozone-platform=x11 \
       --class=proton-mail \
-      --app-id=proton-mail \
+      --profile-directory="proton-mail-profile" \
+      --force-dark-mode \
+      --no-first-run \
+      --no-default-browser-check \
       --app=https://mail.proton.me/ "$@"
   '';
   protonMailDesktop = pkgs.makeDesktopItem {
