@@ -16,6 +16,10 @@
     ../users/sicet7/user.nix
   ];
 
+  nix.settings = {
+    download-buffer-size = 524288000; # 500 MiB
+  };
+
   # My Home Desktop has a AMD Graphics Card
   services.xserver.videoDrivers = [ "amdgpu" ];
 

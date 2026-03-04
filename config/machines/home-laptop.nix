@@ -19,6 +19,10 @@
     ../users/sicet7/user.nix
   ];
 
+  nix.settings = {
+    download-buffer-size = 524288000; # 500 MiB
+  };
+
   # Home Manager State Version
   sicet7.homeVersion = "23.11";
 
