@@ -8,6 +8,7 @@ let
   protonMailWrapper = pkgs.writeShellScriptBin "proton-mail" ''
     exec ${browser}/bin/${browser.meta.mainProgram} \
       --force-dark-mode \
+      --class=proton-mail \
       --app=https://mail.proton.me/ "$@"
   '';
   protonMailDesktop = pkgs.makeDesktopItem {
@@ -17,7 +18,7 @@ let
       comment = "Secure email (web‑app)";
       desktopName = "Proton Mail";
       categories = [ "Network" "Email" ];
-      startupWMClass = "ungoogled-chromium";
+      startupWMClass = "proton-mail";
       type = "Application";
     };
 in {
