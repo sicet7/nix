@@ -25,7 +25,7 @@ let
       name = "proton-calendar";
       exec = "${protonCalendarWrapper}/bin/proton-calendar";
       icon = "${protonCalendarSvg}";
-      comment = "zero-access encrypted AI assistant by Proton";
+      comment = "Proton Calendar helps you stay on top of your schedule while protecting your data.";
       desktopName = "Proton Calendar";
       categories = [ "Network" "Office" "Calendar" ];
       startupWMClass = "proton-calendar";

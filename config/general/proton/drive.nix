@@ -25,7 +25,7 @@ let
       name = "proton-drive";
       exec = "${protonDriveWrapper}/bin/proton-drive";
       icon = "${protonDriveSvg}";
-      comment = "zero-access encrypted AI assistant by Proton";
+      comment = "Securely store, share, and access your important files and photos. Anytime, anywhere.";
       desktopName = "Proton Drive";
       categories = [ "Network" "System" "FileManager" "FileTools" ];
       startupWMClass = "proton-drive";
