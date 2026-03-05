@@ -5,7 +5,16 @@ let
     path = ./icons/mail.svg;
     name = "proton-mail.svg";
   };
+  mkProfileIfMissing = name: ''
+    PROFILE_DIR="$HOME/.config/chromium/${name}"
+    if [ ! -d "$PROFILE_DIR" ]; then
+      mkdir -p "$PROFILE_DIR"
+      chmod 700 "$PROFILE_DIR"
+    fi
+  '';
   protonMailWrapper = pkgs.writeShellScriptBin "proton-mail" ''
+    ${mkProfileIfMissing "proton-mail-profile"}
+
     exec ${browser}/bin/${browser.meta.mainProgram} \
       --ozone-platform=x11 \
       --class=proton-mail \

@@ -5,7 +5,16 @@ let
     path = ./icons/lumo.svg;
     name = "proton-lumo.svg";
   };
+  mkProfileIfMissing = name: ''
+    PROFILE_DIR="$HOME/.config/chromium/${name}"
+    if [ ! -d "$PROFILE_DIR" ]; then
+      mkdir -p "$PROFILE_DIR"
+      chmod 700 "$PROFILE_DIR"
+    fi
+  '';
   protonLumoWrapper = pkgs.writeShellScriptBin "proton-lumo" ''
+    ${mkProfileIfMissing "proton-mail-profile"}
+
     exec ${browser}/bin/${browser.meta.mainProgram} \
       --ozone-platform=x11 \
       --class=proton-lumo \
