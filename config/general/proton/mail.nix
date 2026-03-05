@@ -5,20 +5,17 @@ let
     path = ./icons/mail.svg;
     name = "proton-mail.svg";
   };
-  mkProfileIfMissing = name: ''
-    PROFILE_DIR="$HOME/.config/chromium/${name}"
-    if [ ! -d "$PROFILE_DIR" ]; then
-      mkdir -p "$PROFILE_DIR"
-      chmod 700 "$PROFILE_DIR"
-    fi
-  '';
   protonMailWrapper = pkgs.writeShellScriptBin "proton-mail" ''
-    ${mkProfileIfMissing "proton-mail-profile"}
+    USER_DATA_DIR="$HOME/.config/chromium-proton-mail-profile"
+    if [ ! -d "$USER_DATA_DIR" ]; then
+      mkdir -p "$USER_DATA_DIR"
+      chmod 700 "$USER_DATA_DIR"
+    fi
 
     exec ${browser}/bin/${browser.meta.mainProgram} \
       --ozone-platform=x11 \
       --class=proton-mail \
-      --profile-directory="proton-mail-profile" \
+      --user-data-dir="$USER_DATA_DIR" \
       --force-dark-mode \
       --no-first-run \
       --no-default-browser-check \
